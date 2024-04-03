@@ -17,6 +17,41 @@ class main_window(QWidget,Ui__frm_StateCalculator):
         self.currentUnits='SI'
         self.setUnits()
         self.show()
+            
+    def create_state_groupbox(self, state_num):
+         """
+        Create a group box for specifying the properties of a thermodynamic state.
+
+        Args:
+            state_num (int): The state number (1 or 2) for which the group box is created.
+
+        Returns:
+            QGroupBox: A group box widget with property selection and value input fields.
+        """
+        group_box = QGroupBox(f"State {state_num}")
+        layout = QVBoxLayout()
+
+        property1_label = QLabel("Property 1:")
+        self.property1_combo = QComboBox()
+        self.property1_combo.addItems(['p', 'T', 'u', 'h', 's', 'v', 'x'])
+
+        property2_label = QLabel("Property 2:")
+        self.property2_combo = QComboBox()
+        self.property2_combo.addItems(['p', 'T', 'u', 'h', 's', 'v', 'x'])
+
+        self.property1_value = QLineEdit()
+        self.property2_value = QLineEdit()
+
+        layout.addWidget(property1_label)
+        layout.addWidget(self.property1_combo)
+        layout.addWidget(self.property1_value)
+        layout.addWidget(property2_label)
+        layout.addWidget(self.property2_combo)
+        layout.addWidget(self.property2_value)
+
+        group_box.setLayout(layout)
+
+        return group_box
 
     def SetupSlotsAndSignals(self):
         self._rdo_English.clicked.connect(self.setUnits)
