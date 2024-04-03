@@ -1,4 +1,5 @@
-#region imports
+# region imports
+# Teammate, Cesar Flores
 import sys
 from ThermoStateCalc import Ui__frm_StateCalculator
 from pyXSteam.XSteam import XSteam
