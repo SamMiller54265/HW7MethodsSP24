@@ -19,6 +19,15 @@ class main_window(QWidget,Ui__frm_StateCalculator):
         self.show()
 
     def create_state_groupbox(self, state_num):
+         """
+        Create a group box for specifying the properties of a thermodynamic state.
+
+        Args:
+            state_num (int): The state number (1 or 2) for which the group box is created.
+
+        Returns:
+            QGroupBox: A group box widget with property selection and value input fields.
+        """
         group_box = QGroupBox(f"State {state_num}")
         layout = QVBoxLayout()
 
